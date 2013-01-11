@@ -1,0 +1,13 @@
+set datafile separator ","
+
+set size square
+set xr[40:60]
+set yr[40:60]
+
+set terminal postscript eps
+set out "img1.eps"
+set multiplot layout 1,2
+
+plot "before.csv"
+plot "after.csv"
+replot
