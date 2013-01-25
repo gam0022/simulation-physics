@@ -33,10 +33,10 @@ public class Ex10 {
 
     // 現在出力すべきステップの添字
     int nki = 0;
+    int nk = 0;
 
     // 5. 6〜9を時間ステップ回数ループ
     for (int step = 0; step <= nks[2]; step++) {
-      int nk = nks[nki];
       // 6. 質量密度 ro
       Mat ro = new Mat(points, nm);
       // 7. ポテンシャル phi をガウス・ザイデル法で計算
@@ -58,7 +58,7 @@ public class Ex10 {
         if (step == nk) {
           String filename = String.format("after_nk%d.csv", nk);
           csv_out(points, filename);
-          nki++;
+          if(nki<2) nk = nks[++nki];
         }
       }
     }
